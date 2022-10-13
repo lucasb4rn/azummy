@@ -1,0 +1,32 @@
+{"properties": [
+  {
+    "name": "spring.sql.init.driver-class-name",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.sql.init.driver-class-name'"
+  },
+  {
+    "name": "spring.sql.init.url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.sql.init.url'"
+  },
+  {
+    "name": "spring.sql.init..show-sql",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.sql.init..show-sql'"
+  },
+  {
+    "name": "spring.sql.init..properties.hibernate.format_sql",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.sql.init..properties.hibernate.format_sql'"
+  },
+  {
+    "name": "spring.sql.init.show-sql",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.sql.init.show-sql'"
+  },
+  {
+    "name": "spring.sql.init.properties.hibernate.format_sql",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.sql.init.properties.hibernate.format_sql'"
+  }
+]}
