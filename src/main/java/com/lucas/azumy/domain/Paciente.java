@@ -1,47 +1,43 @@
 package com.lucas.azumy.domain;
 
-import javax.persistence.Column;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
-public class Colaborador {
+public class Paciente {
 
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
 	private Integer id;
 	private String nome;
-	@NotNull
-	@Column(unique = true)
 	private String cpf;
-	@NotNull
 	private String rg;
-	
+
 	@Enumerated
 	private Sexo sexo;
-	
-	@NotNull
-	private String dataNascimento;
+	private Date dataNascimento;
 
-	@OneToOne
-	@NotNull
+	@OneToOne(cascade = CascadeType.PERSIST)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Contato contato;
 
-	@OneToOne
-	@NotNull
+	@OneToOne(cascade = CascadeType.PERSIST)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Endereco endereco;
 
-	public Colaborador(String nome, String cpf, String rg, Sexo sexo, String dataNascimento, Contato contato,
+	public Paciente(String nome, String cpf, String rg, Sexo sexo, Date dataNascimento, Contato contato,
 			Endereco endereco) {
 		super();
 		this.nome = nome;
@@ -53,12 +49,23 @@ public class Colaborador {
 		this.endereco = endereco;
 	}
 
-	public Colaborador(Integer id, String nome) {
+	public Paciente(Integer id, String nome) {
 		this.id = id;
 		this.nome = nome;
 	}
 
-	public Colaborador() {
+	public Integer getIdade() {
+		GregorianCalendar hj = new GregorianCalendar();
+		GregorianCalendar nascimento = new GregorianCalendar();
+		if (dataNascimento != null) {
+			nascimento.setTime(dataNascimento);
+		}
+		int anohj = hj.get(Calendar.YEAR);
+		int anoNascimento = nascimento.get(Calendar.YEAR);
+		return anohj - anoNascimento;
+	}
+
+	public Paciente() {
 	}
 
 	public Integer getId() {
@@ -101,11 +108,11 @@ public class Colaborador {
 		this.sexo = sexo;
 	}
 
-	public String getDataNascimento() {
+	public Date getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(String dataNascimento) {
+	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 
