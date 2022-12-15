@@ -23,6 +23,7 @@ application-dev.properties
 *.ipr
 
 ### NetBeans ###
+application-dev.properties
 /nbproject/private/
 /nbbuild/
 /dist/
