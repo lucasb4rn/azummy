@@ -17,7 +17,7 @@ public class CorsConfig {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**").allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
-                        .allowedOrigins("http://localhost:4200","http://localhost:8081", "http://177.82.89.19:8081");
+                        .allowedOrigins("http://localhost:4200","http://localhost:8081", "https://azummy-front-lqs3.vercel.app");
                 WebMvcConfigurer.super.addCorsMappings(registry);
             }
         };
