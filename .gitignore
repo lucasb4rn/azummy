@@ -7,7 +7,7 @@ target/
 apl
 
 ### STS ###
-application-dev.properties
+src/main/resources/application-dev.properties
 .apt_generated
 .classpath
 .factorypath
